@@ -89,12 +89,3 @@ python benchmarks/benchmark_simulator.py
 python validate_results.py
 ```
 
-## Badge
-
-Add these badges to your main README.md:
-
-```markdown
-[![CI](https://github.com/yourusername/measurement-time-simulator/workflows/CI/badge.svg)](https://github.com/yourusername/measurement-time-simulator/actions)
-[![codecov](https://codecov.io/gh/yourusername/measurement-time-simulator/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/measurement-time-simulator)
-[![PyPI version](https://badge.fury.io/py/measurement-time-simulator.svg)](https://badge.fury.io/py/measurement-time-simulator)
-```
