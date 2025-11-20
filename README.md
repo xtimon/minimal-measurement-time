@@ -202,13 +202,18 @@ python validate_results.py
 ### Базовая установка
 
 ```bash
-pip install measurement-time-simulator
+pip install minimal-measurement-time
+```
+
+После установки импортируйте модуль следующим образом:
+```python
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 ```
 
 ### С поддержкой GPU (опционально)
 
 ```bash
-pip install measurement-time-simulator[gpu]
+pip install minimal-measurement-time[gpu]
 ```
 
 Для GPU требуется установленный CUDA и соответствующие драйверы.
@@ -221,10 +226,17 @@ cd measurement-time-simulator
 pip install -e .
 ```
 
+**Примечание**: 
+- Репозиторий называется `measurement-time-simulator`
+- Пакет для установки: `minimal-measurement-time` (используется в `pip install`)
+- Модуль для импорта: `minimal_measurement_time` (используется в `from ... import`)
+
 ## Быстрый старт
 
+После установки пакета `minimal-measurement-time` используйте следующий импорт:
+
 ```python
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 # Создание симулятора
 sim = GPUInformationMeasurementSimulator(temperature=300.0, use_gpu=True)
@@ -248,7 +260,7 @@ print(f"Минимальное время измерения: {measurement_time:
 Самый простой способ запустить симуляцию — использовать метод `simulate_single_system()`:
 
 ```python
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 # 1. Создайте экземпляр симулятора
 sim = GPUInformationMeasurementSimulator(
@@ -361,7 +373,7 @@ measurement_time, results = sim.simulate_single_system(
 
 ```python
 import numpy as np
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 sim = GPUInformationMeasurementSimulator(temperature=300.0, use_gpu=True)
 
@@ -418,7 +430,7 @@ print(f"Фактор шума: {results_dict['noise']['factor']:.3f}")
 Вы можете экспортировать результаты вручную. Все результаты автоматически сохраняются в директорию `results/`:
 
 ```python
-from measurement_time_simulator import ResultExporter
+from minimal_measurement_time import ResultExporter
 
 # Получить результаты
 measurement_time, results_dict = sim.simulate_single_system(
@@ -487,7 +499,7 @@ python example_simulation.py
 
 ```python
 import numpy as np
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 sim = GPUInformationMeasurementSimulator(temperature=300.0, use_gpu=True)
 
@@ -513,7 +525,7 @@ print(f"Среднее время: {np.mean(min_times):.3e} с")
 ### С учетом декогеренции и шума
 
 ```python
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 sim = GPUInformationMeasurementSimulator(temperature=300.0)
 

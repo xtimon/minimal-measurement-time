@@ -53,16 +53,16 @@ Use descriptive branch names:
 
 ```bash
 # Run tests
-pytest -v --cov=measurement_time_simulator
+pytest -v --cov=minimal_measurement_time
 
 # Format code
-black measurement_time_simulator/
+black minimal_measurement_time/
 
 # Lint code
-flake8 measurement_time_simulator/
+flake8 minimal_measurement_time/
 
 # Type check
-mypy measurement_time_simulator/
+mypy minimal_measurement_time/
 ```
 
 ### 4. Commit Changes
@@ -156,7 +156,7 @@ pytest
 pytest tests/test_simulator.py
 
 # Run with coverage
-pytest --cov=measurement_time_simulator --cov-report=html
+pytest --cov=minimal_measurement_time --cov-report=html
 
 # Run only fast tests
 pytest -m "not slow"

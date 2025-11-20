@@ -49,7 +49,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["measurement_time_simulator"]
+source = ["minimal_measurement_time"]
 omit = [
     "*/tests/*",
     "*/test_*.py",
