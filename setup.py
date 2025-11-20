@@ -14,7 +14,7 @@ def read_readme():
     return ""
 
 setup(
-    name="measurement-time-simulator",
+    name="minimal-measurement-time",
     version="0.1.0",
     author="Measurement Time Simulator Team",
     description="Фреймворк для симуляции времени измерения информации в физических системах",
