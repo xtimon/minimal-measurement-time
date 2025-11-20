@@ -1,0 +1,111 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Test Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy>=1.19.0
+        pip install pytest pytest-cov
+        pip install -e .
+    
+    - name: Install optional dependencies
+      run: |
+        pip install numba || echo "Numba not available for this Python version"
+      continue-on-error: true
+    
+    - name: Run tests
+      run: |
+        pytest -v --cov=measurement_time_simulator --cov-report=xml --cov-report=term
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-${{ matrix.python-version }}
+        fail_ci_if_error: false
+
+  lint:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy>=1.19.0
+        pip install black flake8 mypy
+        pip install -e .
+    
+    - name: Check code formatting with black
+      run: |
+        black --check --diff measurement_time_simulator/ tests/ benchmarks/
+      continue-on-error: true
+    
+    - name: Lint with flake8
+      run: |
+        flake8 measurement_time_simulator/ --max-line-length=120 --extend-ignore=E203,W503,E501 --exclude=__pycache__
+      continue-on-error: true
+    
+    - name: Type check with mypy
+      run: |
+        mypy measurement_time_simulator/ --ignore-missing-imports --no-strict-optional
+      continue-on-error: true
+
+  validate:
+    name: Validate Examples
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy>=1.19.0
+        pip install -e .
+    
+    - name: Run validation script
+      run: |
+        python validate_results.py
+      continue-on-error: true
+      timeout-minutes: 5
+    
+    - name: Run example simulation
+      run: |
+        python example_simulation.py
+      timeout-minutes: 3

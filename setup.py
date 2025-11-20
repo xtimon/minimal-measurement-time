@@ -41,6 +41,8 @@ setup(
     extras_require={
         "gpu": [
             "cupy-cuda11x>=10.0.0; platform_machine=='x86_64'",
+        ],
+        "performance": [
             "numba>=0.56.0",
         ],
         "dev": [
@@ -48,6 +50,16 @@ setup(
             "pytest-cov>=2.0",
             "black>=21.0",
             "flake8>=3.8",
+            "mypy>=0.910",
+        ],
+        "all": [
+            "cupy-cuda11x>=10.0.0; platform_machine=='x86_64'",
+            "numba>=0.56.0",
+            "pytest>=6.0",
+            "pytest-cov>=2.0",
+            "black>=21.0",
+            "flake8>=3.8",
+            "mypy>=0.910",
         ],
     },
     keywords="physics simulation quantum measurement information theory",
