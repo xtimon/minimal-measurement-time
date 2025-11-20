@@ -1,5 +1,9 @@
 # Measurement Time Simulator
 
+[![CI](https://github.com/xtimon/minimal-measurement-time/actions/workflows/ci.yml/badge.svg)](https://github.com/xtimon/minimal-measurement-time/actions/workflows/ci.yml)
+[![Performance Benchmarks](https://github.com/xtimon/minimal-measurement-time/actions/workflows/performance.yml/badge.svg)](https://github.com/xtimon/minimal-measurement-time/actions/workflows/performance.yml)
+[![Publish](https://github.com/xtimon/minimal-measurement-time/actions/workflows/publish.yml/badge.svg)](https://github.com/xtimon/minimal-measurement-time/actions/workflows/publish.yml)
+
 Фреймворк для симуляции времени измерения информации в физических системах с учетом квантовых пределов, декогеренции и шума.
 
 ## Описание
