@@ -122,41 +122,25 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# IDEs
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.project
-.pydevproject
-.settings/
-*.sublime-project
-*.sublime-workspace
 
-# OS files
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-desktop.ini
 
-# Логи
-*.log
+# Project specific
+results/*.txt
+results/*.md
+!results/README.md
+benchmarks/results/*.txt
+benchmarks/results/*.json
+!benchmarks/results/.gitkeep
 
-# Временные файлы
+# Temporary files
 *.tmp
-*.temp
 *.bak
-*.backup
-
-# GPU/CUDA кэш (если есть)
-.cupy_cache/
-
-# Результаты бенчмарков
-benchmark_*.txt
-performance_*.txt
-

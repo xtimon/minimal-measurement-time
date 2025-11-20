@@ -22,6 +22,11 @@ from .constants import (
 from .particle_statistics import ParticleStatistics
 from .exporter import ResultExporter
 from .simulator import GPUInformationMeasurementSimulator
+from .optimizations import (
+    get_optimized_calculator,
+    OptimizedCalculator,
+    HAS_NUMBA
+)
 
 __version__ = "0.1.0"
 __author__ = "Measurement Time Simulator Team"
@@ -30,6 +35,9 @@ __all__ = [
     'ParticleStatistics',
     'ResultExporter',
     'GPUInformationMeasurementSimulator',
+    'get_optimized_calculator',
+    'OptimizedCalculator',
+    'HAS_NUMBA',
     'HBAR', 'KB',
     'DEFAULT_N_Q', 'DEFAULT_DELTA_E', 'DEFAULT_TAU_TECH', 'DEFAULT_T_STAR',
     'MIN_TEMPERATURE', 'MIN_DELTA_E',
