@@ -4,7 +4,7 @@ Tests for the simulator module
 
 import pytest
 import numpy as np
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 
 class TestGPUInformationMeasurementSimulator:

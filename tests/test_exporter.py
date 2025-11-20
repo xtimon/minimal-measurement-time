@@ -5,7 +5,7 @@ Tests for the exporter module
 import pytest
 import os
 import tempfile
-from measurement_time_simulator import ResultExporter
+from minimal_measurement_time import ResultExporter
 
 
 class TestResultExporter:

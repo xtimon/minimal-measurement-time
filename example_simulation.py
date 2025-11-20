@@ -10,7 +10,7 @@
 """
 
 import numpy as np
-from measurement_time_simulator import (
+from minimal_measurement_time import (
     GPUInformationMeasurementSimulator,
     ResultExporter
 )

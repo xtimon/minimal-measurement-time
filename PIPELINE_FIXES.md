@@ -24,12 +24,12 @@
 **Solution**:
 - Ran `black` on all Python files with line length 120
 - Reformatted 9 files:
-  - `measurement_time_simulator/__init__.py`
-  - `measurement_time_simulator/constants.py`
-  - `measurement_time_simulator/particle_statistics.py`
-  - `measurement_time_simulator/optimizations.py`
-  - `measurement_time_simulator/exporter.py`
-  - `measurement_time_simulator/simulator.py`
+  - `minimal_measurement_time/__init__.py`
+  - `minimal_measurement_time/constants.py`
+  - `minimal_measurement_time/particle_statistics.py`
+  - `minimal_measurement_time/optimizations.py`
+  - `minimal_measurement_time/exporter.py`
+  - `minimal_measurement_time/simulator.py`
   - `tests/test_simulator.py`
   - `tests/test_exporter.py`
   - `benchmarks/benchmark_simulator.py`
@@ -128,13 +128,13 @@ pip install -e ".[all]"
 pip install -e ".[dev,performance]"
 
 # Run tests
-pytest -v --cov=measurement_time_simulator
+pytest -v --cov=minimal_measurement_time
 
 # Format code
-black measurement_time_simulator/ tests/ benchmarks/ --line-length 120
+black minimal_measurement_time/ tests/ benchmarks/ --line-length 120
 
 # Lint
-flake8 measurement_time_simulator/ --max-line-length=120 --extend-ignore=E203,W503,E501
+flake8 minimal_measurement_time/ --max-line-length=120 --extend-ignore=E203,W503,E501
 ```
 
 ## Expected CI Behavior
@@ -175,10 +175,10 @@ To verify locally before pushing:
 python3 -m pytest tests/ -v
 
 # 2. Check imports
-python3 -c "from measurement_time_simulator import GPUInformationMeasurementSimulator, get_optimized_calculator; print('✅ OK')"
+python3 -c "from minimal_measurement_time import GPUInformationMeasurementSimulator, get_optimized_calculator; print('✅ OK')"
 
 # 3. Run a quick simulation
-python3 -c "from measurement_time_simulator import GPUInformationMeasurementSimulator; sim = GPUInformationMeasurementSimulator(300, False, True); t, _ = sim.simulate_single_system(1.0, 100, 1000, 0, 5000, export_results=False); print(f'Time: {t:.3e}s')"
+python3 -c "from minimal_measurement_time import GPUInformationMeasurementSimulator; sim = GPUInformationMeasurementSimulator(300, False, True); t, _ = sim.simulate_single_system(1.0, 100, 1000, 0, 5000, export_results=False); print(f'Time: {t:.3e}s')"
 ```
 
 All commands should complete successfully with no errors.

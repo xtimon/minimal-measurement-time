@@ -19,7 +19,7 @@ The simulator has been optimized for both CPU and GPU execution, with several la
 The `PhysicsCache` class caches computed physics values to avoid repeated calculations:
 
 ```python
-from measurement_time_simulator import get_optimized_calculator
+from minimal_measurement_time import get_optimized_calculator
 
 calc = get_optimized_calculator()
 # Subsequent calls with same parameters use cached values
@@ -47,7 +47,7 @@ pip install numba
 
 **Usage:**
 ```python
-from measurement_time_simulator.optimizations import HAS_NUMBA
+from minimal_measurement_time.optimizations import HAS_NUMBA
 
 if HAS_NUMBA:
     print("Numba JIT compilation available!")
@@ -66,7 +66,7 @@ pip install cupy-cuda11x  # or cupy-cuda12x for CUDA 12
 
 **Usage:**
 ```python
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 # Enable GPU acceleration
 sim = GPUInformationMeasurementSimulator(temperature=300.0, use_gpu=True)
@@ -91,7 +91,7 @@ min_times = sim.main_equation_batch(
 For very large datasets, chunked processing reduces memory usage:
 
 ```python
-from measurement_time_simulator.optimizations import batch_compute_with_chunking
+from minimal_measurement_time.optimizations import batch_compute_with_chunking
 
 # Process in chunks of 10,000
 results = batch_compute_with_chunking(
@@ -131,7 +131,7 @@ python benchmarks/benchmark_simulator.py
 Arrays are automatically optimized for computation:
 
 ```python
-from measurement_time_simulator.optimizations import optimize_array_operations
+from minimal_measurement_time.optimizations import optimize_array_operations
 
 # Ensures contiguous memory layout
 optimized_arr = optimize_array_operations(input_arr)
@@ -142,7 +142,7 @@ optimized_arr = optimize_array_operations(input_arr)
 Clear caches to free memory:
 
 ```python
-from measurement_time_simulator import get_optimized_calculator
+from minimal_measurement_time import get_optimized_calculator
 
 calc = get_optimized_calculator()
 calc.clear_cache()  # Clear all caches

@@ -30,7 +30,7 @@ pip install .[gpu]
 ## Проверка установки
 
 ```python
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 
 # Создание симулятора
 sim = GPUInformationMeasurementSimulator(temperature=300.0)
@@ -52,7 +52,7 @@ print(f"Время измерения: {measurement_time:.3e} с")
 После установки пакет можно использовать в любом Python скрипте:
 
 ```python
-from measurement_time_simulator import (
+from minimal_measurement_time import (
     GPUInformationMeasurementSimulator,
     ResultExporter,
     ParticleStatistics
@@ -64,7 +64,7 @@ from measurement_time_simulator import (
 ## Структура пакета
 
 ```
-measurement_time_simulator/
+minimal_measurement_time/
 ├── __init__.py          # Основные экспорты
 ├── constants.py         # Физические константы
 ├── exporter.py          # Экспорт результатов

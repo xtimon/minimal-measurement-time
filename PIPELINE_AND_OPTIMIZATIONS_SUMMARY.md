@@ -33,7 +33,7 @@ Performance benchmarking:
 
 ### 2. Performance Optimizations
 
-#### `measurement_time_simulator/optimizations.py` (NEW FILE)
+#### `minimal_measurement_time/optimizations.py` (NEW FILE)
 Complete optimization module with:
 
 **Caching System:**
@@ -249,7 +249,7 @@ Modern Python project configuration:
 ### Using Optimizations
 
 ```python
-from measurement_time_simulator import (
+from minimal_measurement_time import (
     GPUInformationMeasurementSimulator,
     get_optimized_calculator,
     HAS_NUMBA
@@ -287,7 +287,7 @@ python benchmarks/benchmark_simulator.py
 
 ```bash
 # Run all tests with coverage
-pytest -v --cov=measurement_time_simulator
+pytest -v --cov=minimal_measurement_time
 
 # Run only fast tests
 pytest -m "not slow"
@@ -300,13 +300,13 @@ pytest tests/test_simulator.py -v
 
 ```bash
 # Format code
-black measurement_time_simulator/
+black minimal_measurement_time/
 
 # Lint code
-flake8 measurement_time_simulator/
+flake8 minimal_measurement_time/
 
 # Type check
-mypy measurement_time_simulator/
+mypy minimal_measurement_time/
 ```
 
 ## 🚦 Next Steps
@@ -338,7 +338,7 @@ mypy measurement_time_simulator/
 2. `.github/workflows/publish.yml`
 3. `.github/workflows/performance.yml`
 4. `.github/README.md`
-5. `measurement_time_simulator/optimizations.py`
+5. `minimal_measurement_time/optimizations.py`
 6. `tests/__init__.py`
 7. `tests/test_simulator.py`
 8. `tests/test_exporter.py`
@@ -355,7 +355,7 @@ mypy measurement_time_simulator/
 19. `PIPELINE_AND_OPTIMIZATIONS_SUMMARY.md` (this file)
 
 ### Modified Files (2)
-1. `measurement_time_simulator/__init__.py` - Added optimization exports
+1. `minimal_measurement_time/__init__.py` - Added optimization exports
 2. `README.md` - Added performance and CI/CD sections
 
 ## ✅ Completion Checklist

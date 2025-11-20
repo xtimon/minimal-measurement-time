@@ -3,7 +3,7 @@
 Скрипт для проверки результатов симуляций и сравнения с последними исследованиями
 """
 
-from measurement_time_simulator import GPUInformationMeasurementSimulator
+from minimal_measurement_time import GPUInformationMeasurementSimulator
 import numpy as np
 
 
