@@ -141,6 +141,10 @@ benchmarks/results/*.txt
 benchmarks/results/*.json
 !benchmarks/results/.gitkeep
 
+# simulation plan results
+results/simulation_plan/*
+!results/simulation_plan/.gitkeep
+
 # Temporary files
 *.tmp
 *.bak
